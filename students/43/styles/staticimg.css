@@ -1,0 +1,44 @@
+img.static{
+    max-width:100%;
+    display:block;
+    width:100%;
+}
+
+img.partial{
+    max-width:50%;
+    display:block;
+    width:50%;
+    margin:auto;
+}
+
+img.sidebyside {
+    display: inline-block;
+    width: 47.5%;
+    height: auto;
+    margin: 1%;
+    border:none; 
+}
+
+img.smallblock {
+    float: left;
+    align: center;
+    width: 128px;
+    height: auto;
+    margin: 1%;
+    border:none; 
+}
+
+iframe.looksnice{
+    max-width:50%;
+    display:block;
+    width:50%;
+    margin:auto;
+}
+
+video.sidebyside {
+    display: inline-block;
+    width: 47.5%;
+    height: auto;
+    margin: 1%;
+    border:none; 
+}
