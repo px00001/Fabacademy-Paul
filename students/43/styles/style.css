@@ -1,14 +1,8 @@
 body{
     background-color: rgb(215,219,228);
-<<<<<<< HEAD
-<<<<<<< HEAD
     background-image: url('dragontail.jpg');
-=======
     background-image: url('dragontail.html');
->>>>>>> refs/remotes/origin/master
-=======
     background-image: url('dragontail.html');
->>>>>>> 9d0726c9faf0745dd67d1287f2c16b9f0d16ba04
     background-repeat: no-repeat;
     background-position-x:center;
     font-family: Arial, Helvetica, sans-serif;
