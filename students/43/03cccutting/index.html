@@ -16,6 +16,7 @@
                   from instructions on: http://stackoverflow.com/questions/16916800/code-window-for-websites
             ========================================================================================== -->
             <link rel="stylesheet" href="../styles/style.css">
+            <link rel="stylesheet" href="../styles/staticimg.css">
       </head>
       <body>
             <div class = "flex-container">
@@ -27,12 +28,15 @@
                         <a href='../00weeklyprojects/' class='nounderline'><button>Weekly Projects</button></a>
                   </nav>
                   <article class="article"><!-- Third in order or (if large enough screen) right 2/3 of page -->
-                        <h1><a href=''>Computer-Controlled Cutting</a></h1>
+                        <h1><a href='http://docs.academany.org/FabAcademy-Assessment/_book/computer-controlled_cutting.html'>Computer-Controlled Cutting</a></h1>
+                        <p>***spent 3+ hours working to fix Git errors and then cleaning pieces of this messy merge <br> This week's page will be further developed...<br>
+                        This work with Git was an 11th hour problem
+                        </p>
                         <h2>Laser Cutting</h2>
                         <ul>
-                              <li>make lasercutter test part(s), varying slot dimensions using parametric functions, testing your laser kerf & cutting settings (group project)</li>
-                              <li>cut something on the vinylcutter</li>
-                              <li>design, make, and document a parametric press-fit construction kit, accounting for the lasercutter kerf, which can be assembled in multiple ways</li>
+                              <li><a href='#kerf'>make lasercutter test part(s), varying slot dimensions using parametric functions, testing your laser kerf & cutting settings (group project)</a></li>
+                              <li><a href='#vinyl'>cut something on the vinylcutter</a></li>
+                              <li><a href='#para'>design, make, and document a parametric press-fit construction kit</a>, <a href='#kerf'>accounting for the lasercutter kerf</a>, <a href='#create'>which can be assembled in multiple ways</a></li>
                         </ul>
                         <h3>Learning outcomes:</h3>
                         <ul>
@@ -44,7 +48,7 @@
                         <ul>
                               <li>Explained how you parametrically designed your files</li>
                               <li>Shown how you made your press-fit kit</li>
-                              <li>Included your design files and photos of your finished project</li>
+                              <li><a href ='https://www.dropbox.com/s/uon4mmp7b34jqic/Week3Originals.zip?dl=0'>Included your design files</a> and <a href='https://flic.kr/s/aHskRHE1Mn'>photos of your finished project</a></li>
                         </ul>
                         <h2>Vinyl Cutting</h2>
                         <p>
@@ -65,47 +69,86 @@
                         <ul>
                               <li>Explained how you drew your files</li>
                               <li>Shown how you made your vinyl project</li>
-                              <li>Included your design files and photos of your finished project</li>
+                              <li><a href ='https://www.dropbox.com/s/uon4mmp7b34jqic/Week3Originals.zip?dl=0'>Included your design files</a> and <a href='https://flic.kr/s/aHskRHE1Mn'> photos of your finished project</a></li>
                         </ul>
                         <hr>
                         <p>
+                              This is a temporary solution, as I need to sleep...<br>
+                              Click on the image below, and you will be taken to a Flickr album of this week's work
+                        </p>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/albums/72157678533632551" title="CCCutting"><img class='sidebyside' src="https://c1.staticflickr.com/4/3698/32067611774_e6195c666f_q.jpg" alt="CCCutting"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
+                        <h2 id='para'>Designing Parametric Parts</h2>
+                        <p>
                               This week has been one that tested frustration limits. After the previous week, I felt good about 3D modeling. I had made several parts, and felt as though I was able to build them to the static specifications that I had developed in my head…
                               This week broke all of that thinking. Designing a press-fit part isn’t too hard conceptually, but it turned out to be a detail-oriented technical challenge that I hadn’t foreseen. The core idea is to build a system of things that press together and will hold their shape. I wanted to build something that would be used to construct simple sculptures, so that did not seem too terribly hard. It felt like a modest goal, really. I began with my gut instinct: build a set of press-fit pieces that were all circular in shape, with appropriately sized groves. Once I watched a tutorial and found the menu to define parametric properties in Autodesk Inventor, I was up and running by Thursday. I had started down the road to my kit. 
-                              
+                        </p>
+                        <p>      
                               The first roadblock was the design software. I knew it didn’t like curves, but I underestimated this effect. As I tried to work with circular pieces, Inventor would regularly not let me extrude in the ways that I desired. I checked to make sure I did not have ‘open edges’ to shapes. And even consulted with the CAD teacher at the high school where I teach and with one of his students. No one was sure why Inventor had such a hard time reconciling the curves with straight lines. So I moved on. By the end of Friday I had shifted my focus to hexagonal shapes as the basis for my kit, and things were going better. 
-                              
+                        </p>
+                        <p>   
                               Once I had finished my first few parametric pieces, I tried resizing them for a different thickness than they had been designed. Things broke. I tried to constrain geometry in every which way. I made lines collinear, perpendicular and tangent; all in an attempt to keep things from breaking when I resized the one user input dimension. Certainly I was getting better at building parametric parts quickly, but I had not fully resolved how to avoid building parts that broke when I resized them. Most of the time the parts would jump along the perimeter. In what I would call a ‘horizontal’ movement, given I had constrained all of their ‘vertical’ dimensions. I gave up for a time. Went to visit friends in Detroit, away from my home in Cleveland. 
-                              
+                        </p>
+                        <p>      
                               Saturday I was in Detroit and back at the problem. I was at The Bottom Line coffee shop, and finally found something. Inventor has a feature that will ‘auto constrain’ parts of a sketch, and I figured I should try it. What was there to loose? I set up this untested function, and there it was. My answer. I had been neglecting to constrain my design elements in the ‘horizontal’ direction they had been shifting previously. I just needed to constrain them relative to the radius of the hexagon. It all made sense in hindsight. Frustrating. However, we all move on and get better with experience. This experience typifies the ‘grit’ that I talk about with my own high school students. It is critical that my students (or anyone) work through frustration and find a solution.
-                              
+                        </p>
+                        <p>      
                               Now I had the parametric elements solved. Next was to quickly produce a full set of the parts with press-fit designs level 1 through 4 and get back to enjoying the rest of my weekend away, visiting friends. 
-                              
+                        </p>
+                        <p id >
+                        The core steps of building a parametric part are simple:
+                        </p>
+                        <ol>
+                        <li>Design your part in general</li>
+                        <li>Open the parametric properties controls of your CAD software</li>
+                        <li>Designate a user-defined parameter (one in this case, and keep the name short)</li>
+                        <li>Assign parametric properties to your part’s geometry that are based off the user defined parameter</li>
+                        <li>Apply any shape constraints (tangent, collinear, perpendicular, etc.)</li>
+                        <li>Change the user defined parameter to see what breaks, and then try and fix things</li>
+                        <li>Repeat until your part will appropriately scale, not matter how you change the parameter. (Ideally, there would be no upper or lower limits on the parametric input.)</li>
+                        </ol>
+                        <p>
+                              <em>Truth be told, I didn't follow those steps all the time. sometimes the design process is more chaotic tham procedural, and that is fine too...</em>
+                        </p>
+                        <h2 id='kerf'>Accounting for the Kerf</h2>
+                        <p>      
                               When I got home, I set to work building the parts that were part of the group project. Since I am geographically isolated from any Fab Academy peers, I simply had to produce this on my own. I used my roommate’s copy of Corel Draw 8, because I knew that would match the software I would use on Monday with the laser. The design was simple and, through a little dimensioning, I could easily build a quick testing rig for finding the right size for my parametric parts. I included the sized slots and raster labels, so that I could tell the size of the slots more easily. Cutting this was relatively straightforward on the laser, but I had to resize my designed parts twice to get close to the size that I needed for the cardboard the lab had in stock.
-                              
+                        </p>
+                        <p>      
                               The next task was figuring out how to transfer the models I had designed in Autodesk Inventor to a laser shape. My first attempt to make this transfer from 3D to 2D information used 123D make. Using this software, I was able to export my 3D model into a DXF file, which Corel was able to accept directly. However, there were many messy scaling options that had to be selected, and the output vector traces were rather inelegant. They were broken into many different partial paths, and the scaling seemed a little off. I laser cut a bunch of these parts anyway, needing to scale them down a little to make it work. I knew this was ‘cheating’ but I was tired and wanted to be done for the night. 
-                              
+                        </p>
+                        <p>      
                               The next day, Tuesday, I found this tutorial that showed me how to export a DXF file directly from Inventor to use with Corel. I am not sure why Autodesk didn’t include DXF in the list of files they would let you export under their export menu, but no matter. I had found a way. These files transfer beautifully into Corel, and with out any partial vectors or scaling issues. Corel even asks if you want to bring it in at a 1:1 scale with the original. How nice. This, paired with some new cardboard in the lab, meant that I was able to cut a much nicer set of press-fit pieces for playing around. I was slightly delayed by having to recheck the proper thickness to parametrically build the parts, but this was no major issue or delay. I had completed the major points of the week’s lab assignment. Next up was to get creative with the kit…
-                              
+                        </p>
+                        <p id='create'>      
                               To be honest, this sort of free-form creativity is best left to someone else. Creation as sculptural expression is not something I always have the energy to do. Instead, I used these press-fit pieces as fidgets in my classes on Tuesday. Students who are normally ‘active’ and need to play with something to stay focused during lecture were given a set of these. They listened to the lessons and built simultaneously in the back of the classroom. Here are some of their creations:
-                              
+                        </p>
+                        <p>      
                               One side note: I had a set of pieces from both before and after the upgrade to nicer cardboard and the direct DXF transport. Students in the later parts of the day were able to compare the two, and they all agreed that the later-made version of the parts was significantly better able to hold together and that the ECT44 cardboard was noticeably stronger.  
-                              
-                              Vinyl
-                              
+                        </p>      
+                        <h2 id='vinyl'>Vinyl</h2>
+                        <p>      
                               Some stickers are easier to cut than others. I had done some work on the vinyl cutter before, but certainly was no expert. The core of what I had done was fighting with the blade and figuring out the proper amount of force to cut the vinyl that was on hand. This work was mostly on large ‘chunky’ stickers that had broad shapes and limited detail, designed in Corel Draw. I decided to level up my skill on this sticker-making task.
-                              
+                        </p>
+                        <p>      
                               My girlfriend is in an Improv Troop called “Asking for a Friend,” as described on my About Me page. She and three friends play as often as they can, and recently designed a troop logo. (One of the troop members is a professional artist, who made the design.) I was given the troop logo as a jpeg. As you can see, it has lots of contrast and fun detail. Very nice artistic work, but not in any way optimized to be a sticker. So here goes the process…
-                              
+                        </p>
+                        <p>      
                               First, I imported the jpeg into Corel. This is just a raster image, and not very useful for the vinyl cutter. So the first step was to allow the software to trace the file into vector paths that can represent the jpeg reasonably well. 
-                              
+                        </p>
+                        <p>
                               Once Corel had automatically found regions and created vector paths to correspond to these, I had to do some merging. Corel’s automatic process allows for user parameters that define thresholds and behaviors for the vectors. The software also allows for merging the paths by described color, while still within the vector tracing wizard. These tools are very useful for making sure the vectors closely approximate the image you wish to represent. 
-                              
+                        </p>
+                        <p>   
                               I let the wizard complete the vector tracing of the raster image, I still needed to prepare those files for the vinyl cutter. First order of business was to change the colors and lines. A simple ‘select all’ allowed me to configure the group of nearly a hundred vector shapes. All were set to clear infill, with a black hairline border. I allowed the vector-based image to stay it original size, and set the work to cut. I was using pieces of black vinyl, and the idea was that I would allow the machine to cut out the parts that I would want to be voids. I could then weed these and have the remaining parts as a sticker that masked whatever it was backing. This option would also scale nicely into screen printing shirts, if all went well and the troop wanted them. 
-                              
+                        </p>
+                        <p>   
                               So I began cutting. Every seemed to be going well at first. Then it started… The outline was cut 4 times, and that is never a good sign. Most of the internal details were cut multiple times over and pieces of the vinyl were being separated from the backing. I had a tracing issue. For some reason, it took a while for this to dawn on me and my first response was to cut the same file, only larger. It did not work. 
-                              
+                        </p>
+                        <p>   
                               I took the file that I had made, and exported it from Corel as a png file that was about 5 times the size of the original. I wanted to flatten all the vectors into a single layer image, but I did not want to loose the positional information to the raster file type. Then I imported this simple contour-like png file back into Corel. While looking at my options for how to trace this thing, I found a setting called ‘line drawing.’ I immediately knew this must be it. I loaded up the wizard, and it was clear. This action would treat the png file, as I wanted it to be - a simple line drawing. This action would not have worked on the original file, there was too much going on, but on the png it worked flawlessly. There were a few extra traces of the outside border, but these were easily removed. The conversion from a reasonably small jpeg to vector paths a tool could cut was complete. 
-                              
+                        </p>
+                        <p>      
                               I set a six by six inch sticker to cut, and tried to weed out the parts I didn’t need. This went reasonably well, but the delicate nature of fome of the weeded elements, along with the embedded small ‘floating’ parts that I wanted to keep meant that weeding was a tedious task. I lost a few of the floating pieces in the first go, but it generally worked. I masked this smaller sticker, and kept it to try and transfer it later. I have still not put it anywhere; otherwise, I would have shown it. However, since this Tuesday was Valentine’s day, I thought it would be nice to cut out four larger stickers to give as gifts to my girlfriend’s all female Improv troop (Life has taught me how to be a good boyfriend). I cut these four stickers to be eight inches on each side, and the weeding went much better. A little masking, trimming, and I had four nice gifts to give. I have given all of these four stickers to my girlfriend. She appreciated it. I have not heard back from the rest of the troop. Perhaps I will update all of you with their feelings later…
                         </p>
                   </article>
