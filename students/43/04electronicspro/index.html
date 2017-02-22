@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+      <head>
+            <meta charset="UTF-8">
+            <title>Corey Rice: Fab Academy 2017</title>
+            <link rel="icon" type="image/png" href="../styles/favicon.png">
+            <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"> <!-- Google Provides an API that allows for the use of 'exotic' fonts-->
+            <!--The following two pages will allow me to have nice embedded code windows in the website -->
+            <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.9.0/styles/default.min.css">
+            <script src="//cdn.jsdelivr.net/highlight.js/9.9.0/highlight.min.js"></script>
+            <!--  This is the end of the handler links for embedded code
+                        
+                        In order to have a code section use this format:
+                        <pre><code> some code in here </code></pre>
+                        
+                  from instructions on: http://stackoverflow.com/questions/16916800/code-window-for-websites
+            ========================================================================================== -->
+            <link rel="stylesheet" href="../styles/staticimg.css">
+            <link rel="stylesheet" href="../styles/style.css">
+      </head>
+      <body>
+            <div class = "flex-container">
+                  <header><h1>Corey M. Rice : Fab Academy 2017</h1></header>
+                  <nav class="nav"><!-- second in order or (if large enough screen) left 1/3 of page -->
+                        <a href='../index.html' class='nounderline'><button>Home</button></a>
+                        <a href='../00aboutme/' class='nounderline'><button>About Me</button></a>                
+                        <a href='../00preliminary/' class='nounderline'><button>Final Project Idea</button></a>
+                        <a href='../00weeklyprojects/' class='nounderline'><button>Weekly Projects</button></a>
+                  </nav>
+                  <article class="article"><!-- Third in order or (if large enough screen) right 2/3 of page -->
+                        <h1><a href='http://docs.academany.org/FabAcademy-Assessment/_book/electronics_production.html'>Electronics Production</a></h1>
+                        <ul>
+                              <li><a href='#mill'>Make an in-circuit programmer by milling the PCB</a></li>
+                              <li>Optionally, trying other processes</li>
+                        </ul>
+                        <h2>Learning outcomes:</h2>
+                        <ul>
+                              <li>Describe the process of <a href='#mill'>milling</a>, <a href='#solder'>stuffing</a>, <a href='#ready'>de-bugging</a> and <a href='#program'>programming</a></li>
+                              <li>Demonstrate correct <a href='#mill'>workflows</a> and identify <a href='improve'>areas for improvement</a> if required</li>
+                        </ul>
+                        <h2>Concrete evidence:</h2>
+                        <ul>
+                              <li>Shown how to <a href='#mill'>make</a> and <a href='#program'>programmed</a> the board</li>
+                              <li>Explained <a href='#program'>any problems and how they were fixed</a></li>
+                              <li>Included a ‘<a href='#hero'>hero shot</a>’ of the board</li>
+                        </ul>
+                        <hr>
+                        <h2 id='context'>Some Context</h2>
+                        <p>
+                              Having the ability to put code onto a microcontroller will be essential for upcoming weeks. Being able to control electronics and their behavior is a critical skill. I have previously dabbled with <a href='https://www.arduino.cc/en/Guide/Introduction'>Arduino</a> for some projects, but these devices make the transition of code from the GUI to the microcontroller as seamless as possible. They must have an integrated way to handle this transition, in both <a href='https://www.arduino.cc/en/Guide/Environment#toc9'>software</a> and <a href='https://learn.adafruit.com/arduino-tips-tricks-and-techniques/arduino-uno-faq#new-usb-chip'>hardware interfacing</a>. This week’s assignment is to build our own hardware programmer. I built the USBtiny/ FabTinyISP and used an Arduino as the programmer to get this done.
+                        </p>
+                        <h2 id='prepare'>Preparing to Build</h2>
+                        <p>
+                              First, we must physically build the board. This required milling the board and then soldering the parts into place. My local instructor mailed me the parts needed to build the ‘<a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html'>Brian</a>’ version of the FabTinyISP. All of the design files are <a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html#pcb'>pngs, available</a> for use with <a href='http://fabmodules.org/'>Fab Modules</a>. I downloaded these files and then used them to generate toolpaths for the Roland MDX-40a mill. One png file corresponds to cutting the traces of the circuit with a 1/64 inch bit and the other is for the 1/32 inch bit to cutout the board. The next step was to prepare the mill. For this first attempt, I was going to mill some wax to make sure that I do not break an expensive mill bit. I taped down a block of blue wax and was off to the races. I placed a 1/8 inch bit in the mill and calibrated the XY origin by sight. The Z-axis was then calibrated by using the detector system that is an integrated part of the mill. After calibration, I ran the traces toolpath with the installed oversized bit. The results were fine, other than being cut by too large of a mill bit. Next up: try the process with the right size bit.
+                        </p>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/32199230004/in/dateposted-public/" title="Electronics production"><img src="https://c1.staticflickr.com/3/2145/32199230004_565799ea37_o.jpg" class='partial' alt="Electronics production"></a>
+                        <p> 
+                              I removed the 1/8 inch bit and replaced it with the appropriate 1/64 inch bit. Next, I recalibrated the XY position so that the mill would not cut the same part of the wax. (Now I realize a similar adjustment is possible by changing the offset in Fab Modules, but recalibrating seemed faster at the time.) I recalibrated the Z-axis origin with this new bit. It seems clear that since the depth of the bit in the collet cannot be consistent, recalibration of the Z-axis must happen after every bit change. I ran the mill with the traces toolpath again, and it ran fine. The result of the millwork in the wax was exactly as expected. 
+                              I replaced the 1/64 inch bit with the 1/32 inch bit and recalibrated the Z-axis, again. Everything seemed to be going fine. I uploaded the cutout traces that move around the perimeter of the FabTinyISP and tried to get the mill to begin the cut but there were error messages. The error messages gave me the option to continue or abort the cut. I first aborted the cut, and made sure that everything was fine. It seemed to be, so I proceeded again. This time I allowed the mill to proceed through the errors. I did not expect the result. The mill immediately jumped up to the top of the interior and began ‘cutting’ out the toolpath in the air. I looked up the result, and it appears that I had placed the 1/32 inch bit too high in the collet. I simply moved the bit down a little, recalibrated the Z-axis and everything went fine. Now I was ready. I had seen the whole milling process in wax, and even one of the possible problems that I could face. 
+                        </p>
+                        <h2 id='mill'>Milling the PCB</h2>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/32199227424/in/album-72157677142037153/" title="Electronics production"><img src="https://c1.staticflickr.com/3/2793/32199227424_89a8be8a0a_o.jpg" class='sidebyside' alt="Electronics production"></a>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/32662600880/in/album-72157677142037153/" title="Electronics production"><img src="https://c1.staticflickr.com/3/2477/32662600880_5cef2980cb_o.jpg" class='sidebyside' alt="Electronics production"></a>
+                        <p>
+                              I placed the 1/64 inch bit into the mill and ran through the process of calibration. Since the FR1 copper clad board was in a new location, all three axes needed to be calibrated. A quick selection of the traces toolpath and I was on my way. A working mill is always impressive. After the traces finished: a quick bit change, calibration and uploading of the cutout toolpath kept things moving. In total, it only took a few minutes to cut out the FabTinyISP board. It came out nicely, but the tool did dive a little into the sacrificial table of the mill. I was able to clean up the milled board a little further with a razor, to cut off the unwanted spare copper near the USB plug. A quick wash in soapy water and rubbing with a brass pad ensured that the board was clean and fee of oxidation for soldering. 
+                        </p>
+                        <h2 id='solder'>Soldering Components onto the Board</h2>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/32662595350/in/album-72157677142037153/" title="Electronics production"><img src="https://c1.staticflickr.com/3/2639/32662595350_67efd48340_o.jpg" class='sidebyside' alt="Electronics production"></a>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/33044609985/in/album-72157677142037153/" title="Electronics production"><img src="https://c1.staticflickr.com/4/3879/33044609985_5bfe9441b0_o.jpg" class='sidebyside' alt="Electronics production"></a>
+                        <p>
+                              SMD soldering was new. Really just very small. Incredibly small. Magnifying glasses and good tweezers are necessary. I stated with the ATtiny. This was the most complicated of the components, but a <a href='https://youtu.be/QzoPxvIM2qE'>little guidance from Collin’s Lab</a> helped. Then I moved on to the diodes. These are the smallest, and the hardest to determine their directionality – the line was very faint. The LEDs came next and were the last of the directional components.  I then placed all of the resistors, connected the jumper and ended with the ISP pins. The whole process required soldering, a solder-sucker and some solder wick to keep everything neat. The last step was to cover the USB pads with solder, and find a piece of cardstock paper to jam under the board and keep electrical contact while in a plug. 
+                        </p>
+                        <h2 id='ready'>Getting Ready for the Firmware</h2>
+                        <p>
+                              So, I don’t have a programmer. Instead, I wanted to use an Arduino to program the circuit I had just made. At the time of starting this week’s work, I vaguely remembered seeing an article somewhere online that said an Arduino could program chips. Based on this hunch, I searched how to use an Arduino as an ISP programmer. I found the <a href='http://highlowtech.org/?p=1695'>High-Low Tech wrote about the process</a>, and had more articles about using an <a href='http://highlowtech.org/?p=1706'>Arduino as a programmer</a> in general. These tutorials guided me to the point where I could use an off-the-shelf Arduino to upload a simple ‘blink’ sketch to the ATtiny45. I used Arduino’s example ‘blink’ sketch, modified to work on the ATtiny45’s pin 2, which is the green LED of the device. Seeing this ability to get code onto the ATtiny45 was encouraging. I knew it wasn’t the whole picture, but it represented a significant step toward the week’s goals. 
+                        </p>
+                        <p>
+                              Next, I needed to figure out how to get the firmware onto the device. This is where I wander out of all experience. I had done things that were either similar or peripheral to the work I had completed up to this point. Entering uncharted territory. Exciting and frustrating… 
+                        </p>
+                        <p>
+                              I followed the <a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html#toolchain'>instructions on the Fab Academy’s FabTinyISP page</a> and, since I am working on a Windows machine, I was directed to a <a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/windows_avr.html'>secondary set of instructions</a>. Everything seemed to go well, until I got to the sanity check. Seems fitting. I had lost track on my way through this whole process while trying to use an Arduino as a programmer, and my progress was suspect. I had tried to install <a href='https://learn.adafruit.com/usbtinyisp/drivers'>drivers from Adafruit</a> before I used <a href='http://zadig.akeo.ie/'>Zigdag</a>. I took a second pass at the installation and sanity check of avrdude. Everything worked. Relief.
+                        </p>
+                        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/147553041@N02/33003365666/in/album-72157677142037153/" title="ArduinoISP -- Hello World"><img class='partial' src="https://c1.staticflickr.com/3/2302/33003365666_f9f72c9a59_o.jpg" alt="ArduinoISP -- Hello World"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                        <br>
+                        <p>
+                              The <a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html#firmware'>firmware</a> was a straightforward download, and <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">make</font> ran well. A hex file was created, and I googled what that was. I have never needed to think about a hex file before but <a href='https://en.wikipedia.org/wiki/Intel_HEX'>Wikipedia</a>, as always, explained it specifically and effectively.
+                        </p> 
+                        <h2 id='program'><a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html#flash'>Programing the ATtiny45</a></h2>
+                        <p>                  
+                              These instructions are conveniently straightforward. However, the instructions are for programming with a traditional programmer. The main action described by the instructions is how to edit the Makefile used to guide the upload of the firmware. However, the instructions do not outline what is needed for the ArduinoISP. Oh good. So, I start Googling. I found <a href='http://codeandlife.com/2012/03/21/using-arduino-uno-as-isp/'>this</a> and <a href='http://fabacademy.org/archives/2015/doc/arduinoisp.html'>this</a> set of instructions that hinted at what I needed to do. Neither worked. So tried to upload the firmware via the Arduino IDE, as I had done before with blink, but no luck. I even changed the hex file to a ino file type, but that didn’t work either. In a moment of desperation, I downloaded <a href='http://www.atmel.com/tools/ATMELSTUDIO.aspx'>Atmel Studio 7</a>. But that software seemed like a Thing with a capital ‘T.’ Atmel Studio has <a href='https://youtu.be/UMi6lg563BA?list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP'>these nice training videos</a>, but it still seems like a significant software package to learn. I turned back to the Makefile. Once again, I tried to upload it with <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">make</font>. No luck. I left and went to out to dinner. Sometimes a problem is best solved with fresh eyes. I needed a break before I continued. Tacos. At this point tacos were a logical need. 
+                        </p>
+                        <p>
+                              I came back from dinner, a few hours later, refreshed. Another attempted <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">make</font> upload, but still more errors than success. Therefore, I tried reading though the errors and Makefile. It appeared that the errors were simply an inability to connect over the computer’s COM port. I looked at the Makefile and found that there were three locations where the COM port was referenced, which I had not edited. I changed them all to COM9. It worked. The errors stopped. So I returned to the <a href='http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/index.html#flash'>programming instructions</a> from Fab Academy. Checked the USB functionality on my Device Manager while the FabTinyISP was plugged in – and it showed up as a listed device called ‘USBtinySPI.’ Everything seemed to be working so I blew the fuses and was finished.
+                        </p>
+                        <h2 id='improve'>Specific Instructions for using an Arduino as a Programmer</h2>
+                        <p>       	
+                              So in summary, using the Arduino as a programmer is not too different from what I imagine using a dedicated programmer must be. Within the Makefile, the first avrdude line (line 34) must be changed to:
+                        </p>
+                        <pre><code>AVRDUDE = avrdude -c stk500v1 -b19200 -P COM9 -p t45</code></pre>
+                        <img class='partial' src="../04electronicspro/images/avrdudeedit.gif">
+                        <p>
+                              The for using the ArduinoISP, the Makefile programmer must be identified as <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">avrisp</font>.
+                        </p>
+                        <p>
+                              Additionally, every <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">-P</font> command in the Makefile must identify the correct COM port. For me that was <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">COM9</font>. I had to change lines 61, 65, and 70 to specifically identify the used <font style="margin-top:0px;font-family: 'Courier New', Courier, monospace">COM9</font>.
+                        </p>
+                        <img class='partial' src="../04electronicspro/images/com9port.gif">
+                        <h2 id='hero'>Hero Shots!</h2>
+                        <img class='sidebyside' src="../04electronicspro/images/connected1280.jpg" alt="Hero! Plugged into USB hub, with some paper to ensure good contact.">
+                        <img class='sidebyside' src="../04electronicspro/images/fabtinyisp1100.jpg" alt="Hero!">
+                        <h2>Hello World</h2>
+                        <p>
+                              My gut tells me that I should find a way to use the FabTinyISP to program a microcontroller to blink an LED. Just as a simple act to say ‘Hello World.’ I have no idea how to do this without the ArduinoISP, but I look forward to the future lesson on the topic. 
+                        </p>
+                  </article>
+                  <footer class="footer">
+                        <!-- the liscence below is directly taken from the creative commons-->
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a> <br>
+                        <p>
+                              This work is presently licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</a><br>
+                              At some time in the future some (or all) of this work may move to a fully open source license.
+                        </p>
+                  </footer>
+            </div>
+      </body>
+</html>

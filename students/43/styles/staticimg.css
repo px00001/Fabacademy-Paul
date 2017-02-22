@@ -28,13 +28,6 @@ img.smallblock {
     border:none; 
 }
 
-iframe.looksnice{
-    max-width:50%;
-    display:block;
-    width:50%;
-    margin:auto;
-}
-
 video.sidebyside {
     display: inline-block;
     width: 47.5%;
